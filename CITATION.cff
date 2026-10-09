@@ -6,5 +6,6 @@ license: GPL-3.0-or-later
 authors:
   - family-names: "Şanlı"
     given-names: "Kemal"
+    orcid: "https://orcid.org/0000-0001-7617-6537"
     affiliation: "Department of Molecular Biology and Genetics, Institute of Science, Istanbul University"
 keywords: [metagenomics, KEGG, pathway analysis, multifunctional enzymes, visualization]

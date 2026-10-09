@@ -13,7 +13,7 @@ community (e.g. human disease pathways in a gut or soil metagenome). PACFM 2 qua
   KOs, in-figure legend, full-screen and full-width views, SVG/TSV export.
 
 Paper: Şanlı K. *Shared enzymes inflate pathway profiles of metagenomes: specificity-aware counting, evidence gating and
-interactive visualization with PACFM 2* (submitted). Archived release: [Zenodo DOI to be added].
+interactive visualization with PACFM 2* (submitted). Archived release: Zenodo DOI to be added.
 
 ## Python package
 
