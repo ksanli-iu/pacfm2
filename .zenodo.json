@@ -1,0 +1,9 @@
+{
+  "title": "PACFM 2: shared-enzyme-aware pathway analysis for functional metagenomics",
+  "upload_type": "software",
+  "description": "Python package and web application for KEGG pathway profiling of metagenomes that accounts for enzymes shared between pathways (counting schemes, pathway-specific evidence, evidence-gated group tests, radial visualization). Includes the benchmark and case-study scripts of the accompanying paper. KEGG data are not included.",
+  "creators": [{"name": "Şanlı, Kemal", "affiliation": "Istanbul University"}],
+  "license": "GPL-3.0-or-later",
+  "keywords": ["metagenomics", "KEGG", "pathway analysis", "multifunctional enzymes", "visualization"],
+  "version": "2.0.0"
+}

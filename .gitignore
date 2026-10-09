@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+node_modules/
+webapp/pacfm-web/dist/
+webapp/pacfm-web/dist-site/
+webapp/pacfm-web/public/kegg_reference.json
+data/kegg/20*/
+data/case_*/
+work/
+analyses/out/
+figures/

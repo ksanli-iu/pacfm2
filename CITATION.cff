@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use PACFM 2, please cite the software and the paper."
+title: "PACFM 2: shared-enzyme-aware pathway analysis for functional metagenomics"
+version: 2.0.0
+license: GPL-3.0-or-later
+authors:
+  - family-names: "Şanlı"
+    given-names: "Kemal"
+    affiliation: "Department of Molecular Biology and Genetics, Institute of Science, Istanbul University"
+keywords: [metagenomics, KEGG, pathway analysis, multifunctional enzymes, visualization]

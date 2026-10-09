@@ -1,0 +1,91 @@
+/* Everything is scoped to #pacfm-app so the app can live inside another site (the lab site's /yayinlar/pacfm/).
+   Dark mode follows the system unless the host page sets data-theme="light" on #pacfm-app. */
+#pacfm-app{--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e4e3df;--pale:#f4f4f2;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--bg:#ffffff;
+  color:var(--ink);background:var(--bg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;text-align:left}
+@media (prefers-color-scheme:dark){#pacfm-app:not([data-theme=light]){--ink:#f2f1ee;--ink2:#c8c6c0;--muted:#9a9891;--grid:#34332f;--pale:#1f1e1c;--bg:#151514}}
+#pacfm-app[data-theme=dark]{--ink:#f2f1ee;--ink2:#c8c6c0;--muted:#9a9891;--grid:#34332f;--pale:#1f1e1c;--bg:#151514}
+body:has(#pacfm-app[data-standalone]){margin:0;background:#fff}
+@media (prefers-color-scheme:dark){body:has(#pacfm-app[data-standalone]:not([data-theme=light])){background:#151514}}
+body:has(#pacfm-app[data-standalone][data-theme=dark]){background:#151514}
+#pacfm-app *{box-sizing:border-box}
+#pacfm-app .pf-head{padding:12px 20px;border-bottom:1px solid var(--grid)}
+#pacfm-app h1{font-size:18px;margin:0;color:var(--ink)}#pacfm-app h1 span{font-weight:400;color:var(--ink2);font-size:14px;margin-left:8px}
+#pacfm-app h2{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink2);margin:16px 0 8px;font-weight:600}
+#pacfm-app .pf-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,480px);min-height:calc(100vh - 210px);border:1px solid var(--grid);border-top:0}
+/* the ribbon: tabs, then the open tab's groups — controls on top, the group's name underneath */
+#pacfm-app .pf-ribbon{border:1px solid var(--grid);border-radius:8px 8px 0 0;background:var(--pale)}
+#pacfm-app .pf-tabs{display:flex;gap:2px;padding:4px 8px 0;border-bottom:1px solid var(--grid)}
+#pacfm-app .pf-tabs [role=tab]{margin:0;border:1px solid transparent;border-bottom:0;border-radius:6px 6px 0 0;background:none;padding:6px 14px;color:var(--ink2);position:relative;top:1px}
+#pacfm-app .pf-tabs [role=tab]:hover{color:var(--ink);border-color:transparent;background:var(--bg)}
+#pacfm-app .pf-tabs [role=tab][aria-selected=true]{background:var(--bg);color:var(--s1);font-weight:600;border-color:var(--grid)}
+#pacfm-app .pf-tabs [role=tab]:focus-visible{outline:2px solid var(--s1);outline-offset:-2px}
+#pacfm-app .pf-panel{display:flex;align-items:stretch;flex-wrap:nowrap;overflow-x:auto;background:var(--bg);height:108px;padding:6px 4px 0}
+#pacfm-app .pf-panel[hidden]{display:none}
+#pacfm-app .pf-group{display:flex;flex-direction:column;flex:none;padding:0 12px;border-right:1px solid var(--grid);margin-bottom:4px}
+#pacfm-app .pf-group-body{flex:1;display:flex;align-items:center;gap:4px}
+#pacfm-app .pf-group-body.pf-stack{flex-direction:column;align-items:stretch;justify-content:center;gap:0;min-width:180px}
+#pacfm-app .pf-group-name{text-align:center;font-size:11px;color:var(--muted);padding:4px 0 2px}
+#pacfm-app .pf-group label{margin:2px 0}
+#pacfm-app .pf-group select{width:240px;min-width:0;max-width:100%}
+#pacfm-app .pf-group input[type=range]{width:190px;max-width:100%;min-width:0}
+#pacfm-app .pf-group-body.pf-stack label{width:max-content;max-width:260px}
+#pacfm-app .pf-check{display:flex;align-items:center;gap:6px}
+#pacfm-app .pf-check input{margin:0}
+/* large ribbon buttons: icon over text (file pickers are labels around a hidden input) */
+#pacfm-app .pf-big{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:72px;max-width:96px;
+  padding:6px 8px;margin:0;border:1px solid transparent;border-radius:6px;background:none;color:var(--ink);cursor:pointer;font-size:12px;line-height:1.2;text-align:center}
+#pacfm-app .pf-big:hover{background:var(--pale);border-color:var(--grid)}
+#pacfm-app .pf-big:focus-within,#pacfm-app button.pf-big:focus-visible{outline:2px solid var(--s1);outline-offset:1px}
+#pacfm-app .pf-big:disabled{opacity:.4;cursor:default;background:none;border-color:transparent}
+#pacfm-app .pf-big input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+#pacfm-app .pf-ico{width:24px;height:24px;fill:none;stroke:var(--s1);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#pacfm-app .pf-zoomval{min-width:52px;text-align:center;font-variant-numeric:tabular-nums;color:var(--ink2)}
+#pacfm-app .pf-status{margin:0;padding:6px 12px;font-size:12px;color:var(--ink2);border:1px solid var(--grid);border-top:0;background:var(--pale)}
+/* zoom control in the figure's corner */
+#pacfm-app .pf-zoomfloat{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--grid);
+  border-radius:8px;background:var(--bg);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+#pacfm-app .pf-zoomfloat button{margin:0;width:30px;height:30px;padding:0;display:inline-flex;align-items:center;justify-content:center;font-size:18px;line-height:1;border-radius:6px}
+#pacfm-app .pf-zoomfloat button:disabled{opacity:.4;cursor:default}
+#pacfm-app .pf-zoomfloat .pf-ico{width:16px;height:16px}
+#pacfm-app .pf-zoomfloat .pf-zoomval{min-width:44px;font-size:12px}
+#pacfm-app label{display:block;margin:8px 0;color:var(--ink2);font-weight:400}
+#pacfm-app label.file input{display:block;margin-top:4px;max-width:100%}
+#pacfm-app select,#pacfm-app input[type=range]{width:100%;margin-top:4px}
+#pacfm-app select,#pacfm-app input,#pacfm-app button{color:var(--ink);background:var(--pale);border:1px solid var(--grid);font:inherit}
+#pacfm-app button{margin:4px 4px 4px 0;padding:6px 10px;border-radius:6px;cursor:pointer}
+#pacfm-app button:hover{border-color:var(--s1)}
+#pacfm-app .muted{color:var(--muted);font-size:12px}
+#pacfm-app .pf-figure{position:relative;display:flex;align-items:center;justify-content:center;padding:8px;overflow:hidden;min-width:0}
+#pacfm-app svg.pf-radial{width:100%;max-width:1190px;height:auto;aspect-ratio:1190/900;touch-action:none}
+#pacfm-app .pf-figure.is-zoomed svg.pf-radial{cursor:grab}
+#pacfm-app .pf-figure.is-zoomed svg.pf-radial:active{cursor:grabbing}
+#pacfm-app .pf-tooltip{position:absolute;pointer-events:none;background:var(--bg);color:var(--ink);border:1px solid var(--grid);border-radius:6px;padding:8px 10px;font-size:12px;box-shadow:0 2px 8px rgba(0,0,0,.12);max-width:280px;z-index:5}
+#pacfm-app .pf-tablepane{padding:4px 16px;border-left:1px solid var(--grid);overflow:auto;max-height:calc(100vh - 210px)}
+#pacfm-app table{border-collapse:collapse;width:100%;font-size:12px;background:var(--bg);color:var(--ink);margin:0}
+#pacfm-app th,#pacfm-app td{padding:4px 6px;border:0;border-bottom:1px solid var(--grid);text-align:right;white-space:nowrap;background:var(--bg);color:var(--ink)}
+#pacfm-app th:first-child,#pacfm-app td:first-child{text-align:left;white-space:normal}
+#pacfm-app th{position:sticky;top:0;cursor:pointer;color:var(--ink2);font-weight:600}
+#pacfm-app tr.flag td:first-child{color:var(--s2)}
+#pacfm-app tr.weak td{color:var(--muted)}
+#pacfm-app .badge{display:inline-block;padding:0 4px;border-radius:3px;font-size:10px;background:var(--s2);color:#fff;margin-left:4px}
+#pacfm-app .badge.weak{background:var(--muted)}
+@media (max-width:1100px){#pacfm-app .pf-main{grid-template-columns:1fr}#pacfm-app .pf-tablepane{border-left:0;border-top:1px solid var(--grid);max-height:none}}
+@media (max-width:640px){#pacfm-app .pf-group{padding:0 6px}#pacfm-app .pf-group select{min-width:0;max-width:70vw}#pacfm-app .pf-group-body.pf-stack{min-width:0}}
+/* standalone (index.html): the ribbon and panes run edge to edge */
+#pacfm-app[data-standalone] .pf-ribbon{border-radius:0;border-left:0;border-right:0}
+#pacfm-app[data-standalone] .pf-status,#pacfm-app[data-standalone] .pf-main{border-left:0;border-right:0}
+
+/* layout: collapse the table or the figure; full screen figure */
+#pacfm-app .pf-main[data-layout=figure]{grid-template-columns:minmax(0,1fr)}
+#pacfm-app .pf-main[data-layout=figure] .pf-tablepane{display:none}
+#pacfm-app .pf-main[data-layout=table]{grid-template-columns:minmax(0,1fr)}
+#pacfm-app .pf-main[data-layout=table] .pf-figure{display:none}
+#pacfm-app .pf-main[data-layout=table] .pf-tablepane{border-left:0;max-height:none}
+#pacfm-app .pf-main[data-layout=figure] svg.pf-radial{width:auto;height:calc(100vh - 240px);min-height:480px;max-width:100%;max-height:none}
+#pacfm-app .pf-panehead{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#pacfm-app .pf-mini{display:inline-flex;align-items:center;gap:4px;margin:0 0 0 4px;padding:3px 7px;font-size:12px;border-radius:5px}
+#pacfm-app .pf-mini .pf-ico{width:14px;height:14px}
+#pacfm-app .pf-zoomfloat .pf-sep{width:1px;height:20px;background:var(--grid);margin:0 3px}
+#pacfm-app .pf-zoomfloat button[aria-pressed=true]{background:var(--pale);border-color:var(--s1)}
+#pacfm-app .pf-figure:fullscreen{background:var(--bg);padding:16px;width:100vw;height:100vh}
+#pacfm-app .pf-figure:fullscreen svg.pf-radial{max-width:none;width:auto;height:100%;max-height:calc(100vh - 32px)}

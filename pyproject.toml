@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pacfm2"
+version = "2.0.0"
+description = "Shared-enzyme-aware pathway analysis for functional metagenomics"
+readme = "README.md"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "Kemal Şanlı", email = "kemal.sanli@istanbul.edu.tr" }]
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas"]
+
+[tool.setuptools]
+packages = ["pacfm2"]
